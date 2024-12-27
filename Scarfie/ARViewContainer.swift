@@ -1,19 +1,12 @@
-//
-//  ARViewContainer.swift
-//  Scarfie
-//
-//  Created by Dayan Abdulla on 12/2/24.
-//
-
-import SwiftUI
 import ARKit
 import RealityKit
+import SwiftUI
 
 struct ARViewContainer: UIViewRepresentable {
     func makeUIView(context: Context) -> ARView {
         let arView = ARView(frame: .zero)
-        
-        // Configure AR session
+
+        // Check for face tracking support
         guard ARFaceTrackingConfiguration.isSupported else {
             print("Face tracking is not supported on this device.")
             return arView
@@ -23,11 +16,25 @@ struct ARViewContainer: UIViewRepresentable {
         configuration.isLightEstimationEnabled = true
         arView.session.run(configuration)
 
+        // Add ARSession delegate to capture face data
+        arView.session.delegate = context.coordinator
+
         return arView
     }
 
-    func updateUIView(_ uiView: ARView, context: Context) {
-        // Update ARView if needed
+    func updateUIView(_ uiView: ARView, context: Context) {}
+
+    func makeCoordinator() -> Coordinator {
+        return Coordinator()
+    }
+
+    class Coordinator: NSObject, ARSessionDelegate {
+        func session(_ session: ARSession, didUpdate anchors: [ARAnchor]) {
+            for anchor in anchors {
+                if let faceAnchor = anchor as? ARFaceAnchor {
+                    print("Detected face at \(faceAnchor.transform)")
+                }
+            }
+        }
     }
 }
-
