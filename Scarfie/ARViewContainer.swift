@@ -38,3 +38,4 @@ struct ARViewContainer: UIViewRepresentable {
         }
     }
 }
+//Add a bool variable to switch to detected face to scanning for face since its finding a face
