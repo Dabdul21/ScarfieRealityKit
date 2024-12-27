@@ -14,7 +14,7 @@ struct ContentView: View {
             ARViewContainer()
                 .edgesIgnoringSafeArea(.all)
 
-            // Add a basic overlay or buttons here
+            // Add a basic overlay or buttons here camera shows up here
             VStack {
                 Spacer()
                 Text("Scanning for a scarf...")
