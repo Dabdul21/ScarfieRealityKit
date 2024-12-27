@@ -9,13 +9,22 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        ZStack {
+            // Embed ARViewContainer
+            ARViewContainer()
+                .edgesIgnoringSafeArea(.all)
+
+            // Add a basic overlay or buttons here
+            VStack {
+                Spacer()
+                Text("Scanning for a scarf...")
+                    .padding()
+                    .background(Color.black.opacity(0.5))
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+                    .padding()
+            }
         }
-        .padding()
     }
 }
 
