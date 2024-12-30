@@ -18,6 +18,8 @@ struct ContentView: View {
                     .foregroundColor(.white)
                     .cornerRadius(10)
                     .padding()
+                    .animation(.easeInOut, value: isFaceDetected)
+
             }
         }
     }
