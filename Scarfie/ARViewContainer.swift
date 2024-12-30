@@ -3,6 +3,8 @@ import RealityKit
 import SwiftUI
 
 struct ARViewContainer: UIViewRepresentable {
+    @Binding var isFaceDetected: Bool // Binding to track face detection status
+
     func makeUIView(context: Context) -> ARView {
         let arView = ARView(frame: .zero)
 
@@ -25,17 +27,27 @@ struct ARViewContainer: UIViewRepresentable {
     func updateUIView(_ uiView: ARView, context: Context) {}
 
     func makeCoordinator() -> Coordinator {
-        return Coordinator()
+        return Coordinator(isFaceDetected: $isFaceDetected)
     }
 
     class Coordinator: NSObject, ARSessionDelegate {
+        @Binding var isFaceDetected: Bool
+
+        init(isFaceDetected: Binding<Bool>) {
+            _isFaceDetected = isFaceDetected
+        }
+
         func session(_ session: ARSession, didUpdate anchors: [ARAnchor]) {
+            var faceDetected = false
             for anchor in anchors {
-                if let faceAnchor = anchor as? ARFaceAnchor {
-                    print("Detected face at \(faceAnchor.transform)")
+                if anchor is ARFaceAnchor {
+                    faceDetected = true
+                    break
                 }
+            }
+            DispatchQueue.main.async {
+                self.isFaceDetected = faceDetected
             }
         }
     }
 }
-//Add a bool variable to switch to detected face to scanning for face since its finding a face
