@@ -1,43 +1,25 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var isFaceDetected: Bool = false
-    @State private var selectedScarf: String = "ScarfModel" // Default scarf model
+    @State private var isFaceDetected: Bool = false // Tracks face detection status
 
     var body: some View {
         ZStack {
+            // Embed ARViewContainer
             ARViewContainer(isFaceDetected: $isFaceDetected)
                 .edgesIgnoringSafeArea(.all)
 
+            // Overlay to indicate status
             VStack {
                 Spacer()
-
-                // Dynamic status text
-                Text(isFaceDetected ? "Face Detected!" : "Scanning for a face...")
+                Text(isFaceDetected ? "Face Detected!" : "Scanning...")
                     .padding()
                     .background(isFaceDetected ? Color.green.opacity(0.7) : Color.black.opacity(0.5))
                     .foregroundColor(.white)
                     .cornerRadius(10)
                     .padding()
+                    .animation(.easeInOut, value: isFaceDetected)
 
-                // Scarf selection buttons
-                HStack {
-                    Button(action: { selectedScarf = "ScarfModel" }) {
-                        Text("Scarf 1")
-                            .padding()
-                            .background(Color.blue)
-                            .foregroundColor(.white)
-                            .cornerRadius(10)
-                    }
-                    Button(action: { selectedScarf = "ScarfModel2" }) {
-                        Text("Scarf 2")
-                            .padding()
-                            .background(Color.red)
-                            .foregroundColor(.white)
-                            .cornerRadius(10)
-                    }
-                }
-                .padding()
             }
         }
     }
