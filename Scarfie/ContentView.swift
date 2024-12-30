@@ -1,25 +1,28 @@
+//
+//  ContentView.swift
+//  Scarfie
+//
+//  Created by Dayan Abdulla on 12/2/24.
+//
+
 import SwiftUI
 
 struct ContentView: View {
-    @State private var isFaceDetected: Bool = false // Tracks face detection status
-
     var body: some View {
         ZStack {
             // Embed ARViewContainer
-            ARViewContainer(isFaceDetected: $isFaceDetected)
+            ARViewContainer()
                 .edgesIgnoringSafeArea(.all)
 
-            // Overlay to indicate status
+            // Add a basic overlay or buttons here camera shows up here
             VStack {
                 Spacer()
-                Text(isFaceDetected ? "Face Detected!" : "Scanning for a face...")
+                Text("Scanning for a scarf...")
                     .padding()
-                    .background(isFaceDetected ? Color.green.opacity(0.7) : Color.black.opacity(0.5))
+                    .background(Color.black.opacity(0.5))
                     .foregroundColor(.white)
                     .cornerRadius(10)
                     .padding()
-                    .animation(.easeInOut, value: isFaceDetected)
-
             }
         }
     }
