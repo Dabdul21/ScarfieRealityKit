@@ -15,3 +15,4 @@
 //figure out coreml
 //find datapoints
 //add scarf ui
+//add welcome screen
