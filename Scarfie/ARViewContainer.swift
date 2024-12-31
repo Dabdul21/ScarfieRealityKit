@@ -68,7 +68,7 @@ struct ARViewContainer: UIViewRepresentable {
             // Invalidate any existing timer
             detectionTimer?.invalidate()
             
-            // Start a new timer
+            // Start a new timer change 0.5 to make longer or shorter
             detectionTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { [weak self] _ in
                 DispatchQueue.main.async {
                     self?.isFaceDetected = false
