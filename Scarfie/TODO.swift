@@ -13,3 +13,4 @@
 //train model
 //find pictures
 //figure out coreml
+//find datapoints
