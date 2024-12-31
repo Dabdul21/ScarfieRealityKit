@@ -16,3 +16,4 @@
 //find datapoints
 //add scarf ui
 //add welcome screen
+//maybe app icon
