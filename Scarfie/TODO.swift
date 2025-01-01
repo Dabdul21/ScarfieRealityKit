@@ -17,3 +17,6 @@
 //add scarf ui
 //add welcome screen
 //maybe app icon
+
+//TO-DO LIST CHAT GPT
+
