@@ -1,11 +1,4 @@
-//
-//  TODO.swift
-//  Scarfie
-//
-//  Created by Dayan Abdulla on 12/30/24.
-//
-//
-//Now that it detects faces and will switch UI when a face is not detected you will need the following things:
+
 /*
         Models of scarves
         Loading a 3D model of a scarf.
@@ -17,9 +10,7 @@
         add scarf ui
         add welcome screen
         maybe app icon
-*/
-//--------------------------------------
-/*
+
  TO-DO LIST CHAT GPT
   
  - Phase 1: Setup Basic Face and Head Detection -
