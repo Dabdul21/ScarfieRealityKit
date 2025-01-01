@@ -19,10 +19,10 @@
 //maybe app icon
 
 //--------------------------------------
-//TO-DO LIST CHAT GPT
-//Phase 1: Setup Basic Face and Head Detection
+//              TO-DO LIST CHAT GPT
+/*  Phase 1: Setup Basic Face and Head Detection
 
-/*      1. Integrate ARKit for Face Tracking:
+     1. Integrate ARKit for Face Tracking:
  Ensure ARKit detects faces reliably using ARFaceTrackingConfiguration.
  Test face detection with the current implementation to confirm functionality.
 
@@ -31,8 +31,15 @@
  Convert frames to a format suitable for image analysis, such as CIImage.
 
 
-
-
+    Phase 2: Implement Scarf Detection
+ 
+    3. Choose a Machine Learning Approach:
+ Option 1: Train a custom Core ML model to detect headscarves.
+ Collect a dataset of images with and without headscarves.
+ Train a model using tools like TensorFlow or Create ML, exporting it as .mlmodel.
+ 
+ Option 2: Use a pre-trained object detection model like YOLO or MobileNet.
+ Fine-tune it to recognize headscarves.
 
 
 
