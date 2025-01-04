@@ -45,7 +45,7 @@
  
  
     5. Test Scarf Detection:
- Test the app with different lighting, angles, and scarf types to ensure reliable detection.
+ Test the app with different lighting, angles, and scarf types to ensure reliable detection
 
 
 
