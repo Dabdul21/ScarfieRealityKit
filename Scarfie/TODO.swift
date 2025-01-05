@@ -27,6 +27,7 @@
    - Phase 2: Implement Scarf Detection -
  
     3. Choose a Machine Learning Approach:
+ 
     Option 1:
  Train a custom Core ML model to detect headscarves.
  Collect a dataset of images with and without headscarves.
@@ -37,6 +38,7 @@
  Fine-tune it to recognize headscarves.
  
 
+ 
     4. Integrate Core ML for Scarf Detection:
 
  Add the trained .mlmodel to Xcode project.
@@ -44,11 +46,27 @@
  Create a @Binding variable (isHeadscarfDetected) to update the UI dynamically.
  
  
+ 
     5. Test Scarf Detection:
  Test the app with different lighting, angles, and scarf types to ensure reliable detection
 
 
+    -Phase 3: Overlay Virtual Scarves
+ 
+    6. Add Virtual Scarves to the Scene:
+        Create 3D scarf models in .usdz or .reality format.
+        Add these models to your Xcode project.
 
+    7. Position the Virtual Scarf:
+
+    Use the ARFaceAnchor's transform matrix to align the virtual scarf with the user's head.
+    Ensure the virtual scarf overlays correctly on top of the detected headscarf.
+    
+    8. Allow Virtual Scarf Switching:
+
+    Add buttons in the UI to switch between different scarf designs.
+    Update the material or replace the 3D model dynamically based on user selection.
+ 
 
 
 
