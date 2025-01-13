@@ -72,6 +72,7 @@ b
 
 
 make two files folders
-take more pictures 
+take more pictures
+ figureout how to incroprate the ml into ar kit
 
 */
