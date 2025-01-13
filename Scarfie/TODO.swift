@@ -72,6 +72,6 @@ b
 
 
 make two files folders
-
+take more pictures 
 
 */
