@@ -2,6 +2,7 @@ import ARKit
 import RealityKit
 import SwiftUI
 
+//sets up an arview
 struct ARViewContainer: UIViewRepresentable {
     @Binding var isFaceDetected: Bool // Binding to track face detection status
     
@@ -26,6 +27,8 @@ struct ARViewContainer: UIViewRepresentable {
     
     func updateUIView(_ uiView: ARView, context: Context) {}
     
+    //Assigns Coordinator as a delegate to listen for face detection.
+
     func makeCoordinator() -> Coordinator {
         return Coordinator(isFaceDetected: $isFaceDetected)
     }
