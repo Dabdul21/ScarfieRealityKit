@@ -73,6 +73,6 @@ b
 
 make two files folders
 take more pictures
- figureout how to incroprate the ml into ar kitl
+ figureout how to incroprate the ml into ar ki
 
 */
