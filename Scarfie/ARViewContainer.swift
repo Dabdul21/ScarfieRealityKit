@@ -62,7 +62,7 @@ struct ARViewContainer: UIViewRepresentable {
                 self.isFaceDetected = faceDetected
             }
             
-            // Reset the timer to clear the detection state if no updates arrive
+            // Resets the timer to clear the detection state if no updates arrive
             resetDetectionTimer()
         }
         
