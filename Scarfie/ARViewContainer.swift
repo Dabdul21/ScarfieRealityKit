@@ -9,37 +9,37 @@ struct ARViewContainer: UIViewRepresentable {
     func makeUIView(context: Context) -> ARView {
         let arView = ARView(frame: .zero)
         
-        // Check for face tracking support
+        // check for face tracking support
         guard ARFaceTrackingConfiguration.isSupported else {
             print("Face tracking is not supported on this device.")
             return arView
         }
         
         let configuration = ARFaceTrackingConfiguration()
-        configuration.isLightEstimationEnabled = true
-        arView.session.run(configuration)
+        configuration.isLightEstimationEnabled = true //is used to provide scene lighting information
+        arView.session.run(configuration) //starts the configuration
         
         // Add ARSession delegate to capture face data
-        arView.session.delegate = context.coordinator
+        arView.session.delegate = context.coordinator //tells the app where to send updates (face movement) and                                                         coordinator handles the rest
         
         return arView
     }
     
     func updateUIView(_ uiView: ARView, context: Context) {}
     
-    //Assigns Coordinator as a delegate to listen for face detection.
-
+    //assigns Coordinator as a delegate to listen for face detection.
     func makeCoordinator() -> Coordinator {
         return Coordinator(isFaceDetected: $isFaceDetected)
     }
     
+//listens for face events and updates binding whwnever ARKit finds something it will tell this class
     class Coordinator: NSObject, ARSessionDelegate {
         @Binding var isFaceDetected: Bool // Binding to update the UI state
         private var detectionTimer: Timer?
         
         // Initializer for the Coordinator
         init(isFaceDetected: Binding<Bool>) {
-            _isFaceDetected = isFaceDetected
+            _isFaceDetected = isFaceDetected // uses _ so it asssigns the value to backing storage
         }
         
         // ARSessionDelegate method that listens for updates to AR anchors
@@ -57,7 +57,7 @@ struct ARViewContainer: UIViewRepresentable {
                 }
             }
             
-            // Update the state variable on the main thread
+            // updates the @bidning variable
             DispatchQueue.main.async {
                 self.isFaceDetected = faceDetected
             }
